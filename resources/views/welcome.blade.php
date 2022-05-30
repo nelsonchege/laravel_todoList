@@ -20,9 +20,10 @@
             <th scope="row">{{ $listItem->id }}</th>
             <td>{{ $listItem->name }}</td>
             <td>{{ $listItem->is_complete }}</td>
-
-            <td><a type="button" href="{{ route('show',['id' => $listItem->id]) }}" class="btn btn-primary">edit</a>
-                <a type="button" href="https://laravel.com/docs/9.x/installation" class="btn btn-secondary">delete</a></td>
+            <td>
+                <a type="button" href="{{ route('updatePage',['id' => $listItem->id]) }}" class="btn btn-primary">edit</a>
+                <a type="button" href="{{ route('deleteItem',['id' => $listItem->id]) }}" class="btn btn-secondary">delete</a>
+            </td>
           </tr>
           @endforeach
         </tbody>

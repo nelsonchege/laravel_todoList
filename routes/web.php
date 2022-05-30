@@ -17,3 +17,6 @@ Route::get('/', [TodoListController::class, 'index']);
 
 Route::get('/showItem/{id}', [TodoListController::class, 'show'])->name('show');
 Route::post('/saveItem', [TodoListController::class, 'saveItem'])->name('saveItem');
+Route::get('/updatePage/{id}', [TodoListController::class, 'updatePage'])->name('updatePage');
+Route::post('/updateItem/{id}', [TodoListController::class, 'updateItem'])->name('updateItem');
+Route::get('/deleteItem/{id}', [TodoListController::class, 'deleteItem'])->name('deleteItem');

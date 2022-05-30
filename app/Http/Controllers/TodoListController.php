@@ -23,10 +23,29 @@ class TodoListController extends Controller
 
         return view('welcome', ['listItems' => ListItem::all()]);
     }
-    public function show($id)
+    public function updatePage($id)
     {
+        // do update here
         $listItem = ListItem::where('id', '=', $id)->first();
+        return view('update', ['listItem' => $listItem]);
+    }
+    public function updateItem(Request $request, $id)
+    {
+        // do update here
+        $listItem = ListItem::where('id', '=', $id)->first();
+        $item = $listItem;
+        $item->name = $request->name;
+        $item->is_complete = $request->is_complete;
+        $item->save();
 
-        return view('edit', ['listItem' => $listItem]);
+        return view('welcome', ['listItems' => ListItem::all()]);
+    }
+    public function deleteItem($id)
+    {
+        // do delete here
+        $listItem = ListItem::where('id', '=', $id)->first();
+        $listItem->delete();
+
+        return view('welcome', ['listItems' => ListItem::all()]);
     }
 }
